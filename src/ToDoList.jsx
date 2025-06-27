@@ -19,6 +19,34 @@ function ToDoList() {
     setTasks(updatedTasks);
   };
 
+  const toggleComplete = (index) => {
+    const updatedTasks = [...tasks];
+    updatedTasks[index].completed = !updatedTasks[index].completed;
+    setTasks(updatedTasks);
+  };
+
+  const moveUp = (index) => {
+    if (index > 0) {
+      const updatedTasks = [...tasks];
+      [updatedTasks[index], updatedTasks[index - 1]] = [
+        updatedTasks[index - 1],
+        updatedTasks[index],
+      ];
+      setTasks(updatedTasks);
+    }
+  };
+
+  const moveDown = (index) => {
+    if (index < tasks.length - 1) {
+      const updatedTasks = [...tasks];
+      [updatedTasks[index], updatedTasks[index + 1]] = [
+        updatedTasks[index + 1],
+        updatedTasks[index],
+      ];
+      setTasks(updatedTasks);
+    }
+  };
+
   return (
     <div className="toDoList">
       <h1>To-Do List</h1>
@@ -37,13 +65,29 @@ function ToDoList() {
       <ol>
         {tasks.map((task, index) => (
           <li key={index}>
-            <input type="checkbox" disabled />
-            <span className="text">{task.text}</span>
+            <input
+              type="checkbox"
+              checked={task.completed}
+              onChange={() => toggleComplete(index)}
+            />
+            <span
+              className="text"
+              style={{
+                textDecoration: task.completed ? "line-through" : "none",
+                marginLeft: "8px",
+              }}
+            >
+              {task.text}
+            </span>
             <button className="btnDelete" onClick={() => deleteTask(index)}>
               🗑️
             </button>
-            <button className="btnUp">↑</button>
-            <button className="btnDown">↓</button>
+            <button className="btnUp" onClick={() => moveUp(index)}>
+              ↑
+            </button>
+            <button className="btnDown" onClick={() => moveDown(index)}>
+              ↓
+            </button>
           </li>
         ))}
       </ol>
