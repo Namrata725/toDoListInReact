@@ -1,0 +1,119 @@
+body {
+  background-color: #fff;
+  font-family: "Segoe UI", sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-size: cover;
+  background-position: center;
+}
+
+.toDoList {
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+h1 {
+  text-align: center;
+  font-size: 2em;
+  color: black;
+  margin-bottom: 30px;
+}
+
+input[type="text"] {
+  width: 80%;
+  padding: 12px;
+  margin: auto;
+  font-size: 16px;
+  border-radius: 12px;
+  border: 2px solid #bfd8b8;
+  outline: none;
+  margin-right: 10px;
+}
+
+.addTask {
+  padding: 12px 20px;
+  background-color: #bfd8b8;
+  color: black;
+  font-size: 16px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.addTask:hover {
+  background-color: #738c6d;
+  color: white;
+}
+
+ol {
+  width: 90%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 20px;
+}
+
+ol li {
+  padding-left: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 60px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  background-image: url(./img/image.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-blend-mode: lighten;
+}
+
+.text {
+  width: 70%;
+  padding: 6px;
+  overflow-wrap: break-word;
+}
+
+li > button {
+  width: calc(20% / 3);
+  margin-left: 10px;
+  padding: 8px 4px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  background-color: #3498db;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+li > button.btnDelete {
+  background-color: #e74c3c;
+}
+
+li > button.btnDelete:hover {
+  background-color: #c0392b;
+}
+
+li > button.btnUp {
+  background-color: #34495e;
+}
+
+li > button.btnUp:hover {
+  background-color: #2c3e50;
+}
+
+li > button.btnDown {
+  background-color: #95a5a6;
+}
+
+li > button.btnDown:hover {
+  background-color: #7f8c8d;
+}
